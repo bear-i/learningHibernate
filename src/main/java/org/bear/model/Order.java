@@ -23,8 +23,8 @@ import org.hibernate.annotations.CreationTimestamp;
 public class Order {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "order-generator")
-    @SequenceGenerator(name = "order-generator", sequenceName = "order_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "order_generator")
+    @SequenceGenerator(name = "order_generator", sequenceName = "order_seq", allocationSize = 1)
     @Column(name = "order_num")
     private Integer id;
 

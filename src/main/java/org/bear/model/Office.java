@@ -19,7 +19,7 @@ import java.util.List;
 public class Office {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "office-generator")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "office_generator")
     @SequenceGenerator(name = "office_generator", sequenceName = "office_seq", allocationSize = 1)
     @Column(name= "office", nullable = false)
     private Integer id;
