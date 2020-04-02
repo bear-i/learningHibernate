@@ -22,36 +22,36 @@ import org.hibernate.annotations.CreationTimestamp;
 @Table(catalog = "sample", schema = "public", name = "\"order\"")
 public class Order {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "order_generator")
-    @SequenceGenerator(name = "order_generator", sequenceName = "order_seq", allocationSize = 1)
-    @Column(name = "order_num")
-    private Integer id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "order_generator")
+	@SequenceGenerator(name = "order_generator", sequenceName = "order_seq", allocationSize = 1)
+	@Column(name = "order_num")
+	private Integer id;
 
-    @Temporal(TemporalType.DATE)
-    @CreationTimestamp
-    @Column(name = "order_date", nullable = false, updatable = false)
-    private Date orderDate;
+	@Temporal(TemporalType.DATE)
+	@CreationTimestamp
+	@Column(name = "order_date", nullable = false, updatable = false)
+	private Date orderDate;
 
 	@ManyToOne
-    @JoinColumn(name = "cust", nullable = false)
-    private Customer customer;
+	@JoinColumn(name = "cust", nullable = false)
+	private Customer customer;
 
-    @ManyToOne
-    @JoinColumn(name = "consultant")
-    private Employee consultant;
+	@ManyToOne
+	@JoinColumn(name = "consultant")
+	private Employee consultant;
 
-    @ManyToOne
+	@ManyToOne
 	@JoinColumns({
 			@JoinColumn(name = "product_series", referencedColumnName = "series"),
 			@JoinColumn(name = "product_serial_number", referencedColumnName = "serial_number")})
 	private Product product;
 
-    @Column(name = "quantity", nullable = false)
-    private Integer quantity;
+	@Column(name = "quantity", nullable = false)
+	private Integer quantity;
 
-    @Column(name = "amount", nullable = false)
-    private BigDecimal amount;
+	@Column(name = "amount", nullable = false)
+	private BigDecimal amount;
 
 	public Integer getId() {
 		return id;
