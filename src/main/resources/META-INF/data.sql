@@ -1,98 +1,170 @@
 ---
 ---  Inserts for sample schema, tailored for MySQL
 ---
-delete from "order";
-delete from customer;
-update office set manager=null;
-delete from employee;
-delete from office;
-delete from product;
+delete
+from "order";
+delete
+from customer;
+update office
+set manager=null;
+delete
+from employee;
+delete
+from office;
+delete
+from product;
 commit;
 
 ---
 ---  PRODUCT
 ---
-INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand) VALUES('REI','2A45C','Ratchet Link',79.00,210);
-INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand) VALUES('ACI','4100Y','Widget Remover',2750.00,25);
-INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand) VALUES('QSA','XK47','Reducer',355.00,38);
-INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand) VALUES('BIC','41627','Plate',180.00,0);
-INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand) VALUES('IMM','779C','900-LB Brace',1875.00,9);
-INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand) VALUES('ACI','41003','Size 3 Widget',107.00,207);
-INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand) VALUES('ACI','41004','Size 4 Widget',117.00,139);
-INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand) VALUES('BIC','41003','Handle',652.00,3);
-INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand) VALUES('IMM','887P','Brace Pin',250.00,24);
-INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand) VALUES('QSA','XK48','Reducer',134.00,203);
-INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand) VALUES('REI','2A44L','Left Hinge',4500.00,12);
-INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand) VALUES('FEA','112','Housing',148.00,115);
-INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand) VALUES('IMM','887H','Brace Holder',54.00,223);
-INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand) VALUES('BIC','41089','Retainer',225.00,78);
-INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand) VALUES('ACI','41001','Size 1 Wiget',55.00,277);
-INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand) VALUES('IMM','775C','500-lb Brace',1425.00,5);
-INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand) VALUES('ACI','4100Z','Widget Installer',2500.00,28);
-INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand) VALUES('QSA','XK48A','Reducer',177.00,37);
-INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand) VALUES('ACI','41002','Size 2 Widget',76.00,167);
-INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand) VALUES('REI','2A44R','Right Hinge',4500.00,12);
-INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand) VALUES('IMM','773C','300-lb Brace',975.00,28);
-INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand) VALUES('ACI','4100X','Widget Adjuster',25.00,37);
-INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand) VALUES('FEA','114','Motor Mount',243.00,15);
-INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand) VALUES('IMM','887X','Brace Retainer',475.00,32);
-INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand) VALUES('REI','2A44G','Hinge Pin',350.00,14);
+INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand)
+VALUES ('REI', '2A45C', 'Ratchet Link', 79.00, 210);
+INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand)
+VALUES ('ACI', '4100Y', 'Widget Remover', 2750.00, 25);
+INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand)
+VALUES ('QSA', 'XK47', 'Reducer', 355.00, 38);
+INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand)
+VALUES ('BIC', '41627', 'Plate', 180.00, 0);
+INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand)
+VALUES ('IMM', '779C', '900-LB Brace', 1875.00, 9);
+INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand)
+VALUES ('ACI', '41003', 'Size 3 Widget', 107.00, 207);
+INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand)
+VALUES ('ACI', '41004', 'Size 4 Widget', 117.00, 139);
+INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand)
+VALUES ('BIC', '41003', 'Handle', 652.00, 3);
+INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand)
+VALUES ('IMM', '887P', 'Brace Pin', 250.00, 24);
+INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand)
+VALUES ('QSA', 'XK48', 'Reducer', 134.00, 203);
+INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand)
+VALUES ('REI', '2A44L', 'Left Hinge', 4500.00, 12);
+INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand)
+VALUES ('FEA', '112', 'Housing', 148.00, 115);
+INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand)
+VALUES ('IMM', '887H', 'Brace Holder', 54.00, 223);
+INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand)
+VALUES ('BIC', '41089', 'Retainer', 225.00, 78);
+INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand)
+VALUES ('ACI', '41001', 'Size 1 Wiget', 55.00, 277);
+INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand)
+VALUES ('IMM', '775C', '500-lb Brace', 1425.00, 5);
+INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand)
+VALUES ('ACI', '4100Z', 'Widget Installer', 2500.00, 28);
+INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand)
+VALUES ('QSA', 'XK48A', 'Reducer', 177.00, 37);
+INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand)
+VALUES ('ACI', '41002', 'Size 2 Widget', 76.00, 167);
+INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand)
+VALUES ('REI', '2A44R', 'Right Hinge', 4500.00, 12);
+INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand)
+VALUES ('IMM', '773C', '300-lb Brace', 975.00, 28);
+INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand)
+VALUES ('ACI', '4100X', 'Widget Adjuster', 25.00, 37);
+INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand)
+VALUES ('FEA', '114', 'Motor Mount', 243.00, 15);
+INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand)
+VALUES ('IMM', '887X', 'Brace Retainer', 475.00, 32);
+INSERT INTO PRODUCT (series, serial_number, description, price, quantity_on_hand)
+VALUES ('REI', '2A44G', 'Hinge Pin', 350.00, 14);
 commit;
 
 ---
 ---  OFFICE
 ---
-INSERT INTO OFFICE (office, city, region, manager, sales, target) VALUES(22,'Denver','Western',null,300000.00,186042.00);
-INSERT INTO OFFICE (office, city, region, manager, sales, target) VALUES(11,'New York','Eastern',null,575000.00,692637.00);
-INSERT INTO OFFICE (office, city, region, manager, sales, target) VALUES(12,'Chicago','Eastern',null,800000.00,735042.00);
-INSERT INTO OFFICE (office, city, region, manager, sales, target) VALUES(13,'Atlanta','Eastern',null,350000.00,367911.00);
-INSERT INTO OFFICE (office, city, region, manager, sales, target) VALUES(21,'Los Angeles','Western',null,725000.00,835915.00);
+INSERT INTO OFFICE (office, city, region, manager, sales, target)
+VALUES (22, 'Denver', 'Western', null, 300000.00, 186042.00);
+INSERT INTO OFFICE (office, city, region, manager, sales, target)
+VALUES (11, 'New York', 'Eastern', null, 575000.00, 692637.00);
+INSERT INTO OFFICE (office, city, region, manager, sales, target)
+VALUES (12, 'Chicago', 'Eastern', null, 800000.00, 735042.00);
+INSERT INTO OFFICE (office, city, region, manager, sales, target)
+VALUES (13, 'Atlanta', 'Eastern', null, 350000.00, 367911.00);
+INSERT INTO OFFICE (office, city, region, manager, sales, target)
+VALUES (21, 'Los Angeles', 'Western', null, 725000.00, 835915.00);
 commit;
 
 ---
 ---  EMPLOYEE
 ---
-INSERT INTO EMPLOYEE (empl_num, name, age, empl_office, title, hire_date, manager, quota, sales) VALUES (106,'Sam Clark',52,11,'VP Sales','2006-06-14',null,275000.00,299912.00);
-INSERT INTO EMPLOYEE (empl_num, name, age, empl_office, title, hire_date, manager, quota, sales) VALUES (109,'Mary Jones',31,11,'Sales Rep','2007-10-12',106,300000.00,392725.00);
-INSERT INTO EMPLOYEE (empl_num, name, age, empl_office, title, hire_date, manager, quota, sales) VALUES (104,'Bob Smith',33,12,'Sales Mgr','2005-05-19',106,200000.00,142594.00);
-INSERT INTO EMPLOYEE (empl_num, name, age, empl_office, title, hire_date, manager, quota, sales) VALUES (108,'Larry Fitch',62,21,'Sales Mgr','2007-10-12',106,350000.00,361865.00);
-INSERT INTO EMPLOYEE (empl_num, name, age, empl_office, title, hire_date, manager, quota, sales) VALUES (105,'Bill Adams',37,13,'Sales Rep','2006-02-12',104,350000.00,367911.00);
-INSERT INTO EMPLOYEE (empl_num, name, age, empl_office, title, hire_date, manager, quota, sales) VALUES (102,'Sue Smith',48,21,'Sales Rep','2004-12-10',108,350000.00,474050.00);
-INSERT INTO EMPLOYEE (empl_num, name, age, empl_office, title, hire_date, manager, quota, sales) VALUES (101,'Dan Roberts',45,12,'Sales Rep','2004-10-20',104,300000.00,305673.00);
-INSERT INTO EMPLOYEE (empl_num, name, age, empl_office, title, hire_date, manager, quota, sales) VALUES (110,'Tom Snyder',41,null,'Sales Rep','2008-01-13',101,null,75985.00);
-INSERT INTO EMPLOYEE (empl_num, name, age, empl_office, title, hire_date, manager, quota, sales) VALUES (103,'Paul Cruz',29,12,'Sales Rep','2005-03-01',104,275000.00,286775.00);
-INSERT INTO EMPLOYEE (empl_num, name, age, empl_office, title, hire_date, manager, quota, sales) VALUES (107,'Nancy Angelli',49,22,'Sales Rep','2006-11-14',108,300000.00,186042.00);
+INSERT INTO EMPLOYEE (empl_num, name, age, empl_office, title, hire_date, manager, quota, sales)
+VALUES (106, 'Sam Clark', 52, 11, 'VP Sales', '2006-06-14', null, 275000.00, 299912.00);
+INSERT INTO EMPLOYEE (empl_num, name, age, empl_office, title, hire_date, manager, quota, sales)
+VALUES (109, 'Mary Jones', 31, 11, 'Sales Rep', '2007-10-12', 106, 300000.00, 392725.00);
+INSERT INTO EMPLOYEE (empl_num, name, age, empl_office, title, hire_date, manager, quota, sales)
+VALUES (104, 'Bob Smith', 33, 12, 'Sales Mgr', '2005-05-19', 106, 200000.00, 142594.00);
+INSERT INTO EMPLOYEE (empl_num, name, age, empl_office, title, hire_date, manager, quota, sales)
+VALUES (108, 'Larry Fitch', 62, 21, 'Sales Mgr', '2007-10-12', 106, 350000.00, 361865.00);
+INSERT INTO EMPLOYEE (empl_num, name, age, empl_office, title, hire_date, manager, quota, sales)
+VALUES (105, 'Bill Adams', 37, 13, 'Sales Rep', '2006-02-12', 104, 350000.00, 367911.00);
+INSERT INTO EMPLOYEE (empl_num, name, age, empl_office, title, hire_date, manager, quota, sales)
+VALUES (102, 'Sue Smith', 48, 21, 'Sales Rep', '2004-12-10', 108, 350000.00, 474050.00);
+INSERT INTO EMPLOYEE (empl_num, name, age, empl_office, title, hire_date, manager, quota, sales)
+VALUES (101, 'Dan Roberts', 45, 12, 'Sales Rep', '2004-10-20', 104, 300000.00, 305673.00);
+INSERT INTO EMPLOYEE (empl_num, name, age, empl_office, title, hire_date, manager, quota, sales)
+VALUES (110, 'Tom Snyder', 41, null, 'Sales Rep', '2008-01-13', 101, null, 75985.00);
+INSERT INTO EMPLOYEE (empl_num, name, age, empl_office, title, hire_date, manager, quota, sales)
+VALUES (103, 'Paul Cruz', 29, 12, 'Sales Rep', '2005-03-01', 104, 275000.00, 286775.00);
+INSERT INTO EMPLOYEE (empl_num, name, age, empl_office, title, hire_date, manager, quota, sales)
+VALUES (107, 'Nancy Angelli', 49, 22, 'Sales Rep', '2006-11-14', 108, 300000.00, 186042.00);
 commit;
 
 ---
 ---   OFFICE MANAGERS
 ---
-UPDATE OFFICE SET manager=108 WHERE OFFICE=22;
-UPDATE OFFICE SET manager=106 WHERE OFFICE=11;
-UPDATE OFFICE SET manager=104 WHERE OFFICE=12;
-UPDATE OFFICE SET manager=105 WHERE OFFICE=13;
-UPDATE OFFICE SET manager=108 WHERE OFFICE=21;
+UPDATE OFFICE
+SET manager=108
+WHERE OFFICE = 22;
+UPDATE OFFICE
+SET manager=106
+WHERE OFFICE = 11;
+UPDATE OFFICE
+SET manager=104
+WHERE OFFICE = 12;
+UPDATE OFFICE
+SET manager=105
+WHERE OFFICE = 13;
+UPDATE OFFICE
+SET manager=108
+WHERE OFFICE = 21;
 commit;
 
 ---
 ---   CUSTOMER
 ---
-INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit) VALUES(2111,'JCP Inc.',103,50000.00);
-INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit) VALUES(2102,'First Corp.',101,65000.00);
-INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit) VALUES(2103,'Acme Mfg.',105,50000.00);
-INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit) VALUES(2123,'Carter & Sons',102,40000.00);
-INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit) VALUES(2107,'Ace International',110,35000.00);
-INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit) VALUES(2115,'Smithson Corp.',101,20000.00);
-INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit) VALUES(2101,'Jones Mfg.',106,65000.00);
-INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit) VALUES(2112,'Zetacorp',108,50000.00);
-INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit) VALUES(2121,'QMA Assoc.',103,45000.00);
-INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit) VALUES(2114,'Orion Corp.',102,20000.00);
-INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit) VALUES(2124,'Peter Brothers',107,40000.00);
-INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit) VALUES(2108,'Holm & Landis',109,55000.00);
-INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit) VALUES(2117,'J.P. Sinclair',106,35000.00);
-INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit) VALUES(2122,'Three Way Lines',105,30000.00);
-INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit) VALUES(2120,'Rico Enterprises',102,50000.00);
-INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit) VALUES(2106,'Fred Lewis Corp.',102,65000.00);
+INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit)
+VALUES (2111, 'JCP Inc.', 103, 50000.00);
+INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit)
+VALUES (2102, 'First Corp.', 101, 65000.00);
+INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit)
+VALUES (2103, 'Acme Mfg.', 105, 50000.00);
+INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit)
+VALUES (2123, 'Carter & Sons', 102, 40000.00);
+INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit)
+VALUES (2107, 'Ace International', 110, 35000.00);
+INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit)
+VALUES (2115, 'Smithson Corp.', 101, 20000.00);
+INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit)
+VALUES (2101, 'Jones Mfg.', 106, 65000.00);
+INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit)
+VALUES (2112, 'Zetacorp', 108, 50000.00);
+INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit)
+VALUES (2121, 'QMA Assoc.', 103, 45000.00);
+INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit)
+VALUES (2114, 'Orion Corp.', 102, 20000.00);
+INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit)
+VALUES (2124, 'Peter Brothers', 107, 40000.00);
+INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit)
+VALUES (2108, 'Holm & Landis', 109, 55000.00);
+INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit)
+VALUES (2117, 'J.P. Sinclair', 106, 35000.00);
+INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit)
+VALUES (2122, 'Three Way Lines', 105, 30000.00);
+INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit)
+VALUES (2120, 'Rico Enterprises', 102, 50000.00);
+INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit)
+VALUES (2106, 'Fred Lewis Corp.', 102, 65000.00);
 INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit)
 VALUES (2119, 'Solomon Inc.', 109, 25000.00);
 INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit)

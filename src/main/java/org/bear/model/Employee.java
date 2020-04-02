@@ -178,7 +178,7 @@ public class Employee {
 				'}';
 	}
 
-	public static class TitleConverter implements AttributeConverter<Title, String>{
+	public static class TitleConverter implements AttributeConverter<Title, String> {
 
 		public String convertToDatabaseColumn(Title title) {
 			return title.toString();

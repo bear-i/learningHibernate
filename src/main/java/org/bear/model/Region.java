@@ -1,25 +1,25 @@
 package org.bear.model;
 
 public enum Region {
-    WESTERN("Western"),
-    EASTERN("Eastern");
+	WESTERN("Western"),
+	EASTERN("Eastern");
 
-    private String identifier;
+	private String identifier;
 
-    Region(String identifier) {
-        this.identifier = identifier;
-    }
+	Region(String identifier) {
+		this.identifier = identifier;
+	}
 
-    public String getIdentifier() {
-        return identifier;
-    }
+	public String getIdentifier() {
+		return identifier;
+	}
 
-    public void setIdentifier(String identifier) {
-        this.identifier = identifier;
-    }
+	public void setIdentifier(String identifier) {
+		this.identifier = identifier;
+	}
 
-    @Override
-    public String toString() {
-        return identifier;
-    }
+	@Override
+	public String toString() {
+		return identifier;
+	}
 }

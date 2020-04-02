@@ -39,7 +39,7 @@ public class CustomerProfile {
 	@OneToOne
 	@MapsId
 	@JoinColumn(name = "cust_num", nullable = false)
-	private	Customer customer;
+	private Customer customer;
 
 	public Integer getId() {
 		return id;

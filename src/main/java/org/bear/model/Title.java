@@ -7,7 +7,7 @@ public enum Title {
 
 	String identifier;
 
-	Title(String identifier){
+	Title(String identifier) {
 		this.identifier = identifier;
 	}
 
