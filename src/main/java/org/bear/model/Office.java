@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "office")
+@Table(catalog = "sample", schema = "public", name = "office")
 public class Office {
 
     @Id
@@ -30,7 +30,7 @@ public class Office {
     private List<Employee> employers = new ArrayList<>();
 
     @ManyToOne
-    @JoinColumn(name="mgr")
+    @JoinColumn(name="manager")
     private Employee manager;
 
     @Column(name = "target")

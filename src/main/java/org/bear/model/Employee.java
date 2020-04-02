@@ -21,7 +21,7 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-@Table(name = "employee")
+@Table(catalog = "sample", schema = "public", name = "employee")
 public class Employee {
 
 	@Id
