@@ -19,7 +19,7 @@ import java.util.Date;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-@Table(name = "\"order\"")
+@Table(catalog = "sample", schema = "public", name = "\"order\"")
 public class Order {
 
     @Id
@@ -43,11 +43,11 @@ public class Order {
 
     @ManyToOne
 	@JoinColumns({
-			@JoinColumn(name = "mfr", referencedColumnName = "mfr_id"),
-			@JoinColumn(name = "product", referencedColumnName = "product_id")})
+			@JoinColumn(name = "series", referencedColumnName = "series"),
+			@JoinColumn(name = "serial_number", referencedColumnName = "serial_number")})
 	private Product product;
 
-    @Column(name = "qty", nullable = false)
+    @Column(name = "quantity", nullable = false)
     private Integer quantity;
 
     @Column(name = "amount", nullable = false)
@@ -144,7 +144,7 @@ public class Order {
 				", orderDate=" + orderDate +
 				", customer=" + customer.getId() +
 				", consultant=" + consultant.getId() +
-				", product=" + product.getPrimaryKey() +
+				", product=" + product.getProductIdentificator() +
 				", quantity=" + quantity +
 				", amount=" + amount +
 				'}';
