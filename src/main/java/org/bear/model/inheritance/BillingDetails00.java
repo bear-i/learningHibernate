@@ -2,8 +2,10 @@ package org.bear.model.inheritance;
 
 import javax.persistence.MappedSuperclass;
 
+//Mapped superclass inheritance strategy example
+
 @MappedSuperclass
-public abstract class BillingDetails {
+public abstract class BillingDetails00 {
 
 	private String owner;
 

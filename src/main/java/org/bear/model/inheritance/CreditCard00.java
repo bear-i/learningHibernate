@@ -8,11 +8,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+//Mapped superclass inheritance strategy example
+
 @Entity
 @AttributeOverride(name = "owner",
 		column = @Column(name = "CC_OWNER", nullable = false))
 @Table(catalog = "sample", schema = "\"public\"", name = "credit_card")
-public class CreditCard extends BillingDetails {
+public class CreditCard00 extends BillingDetails00 {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -65,7 +67,7 @@ public class CreditCard extends BillingDetails {
 		if(this == o) return true;
 		if(o == null || getClass() != o.getClass()) return false;
 
-		CreditCard that = (CreditCard) o;
+		CreditCard00 that = (CreditCard00) o;
 
 		if(getId() != null ? !getId().equals(that.getId()) : that.getId() != null) return false;
 		if(getCardNumber() != null ? !getCardNumber().equals(that.getCardNumber()) : that.getCardNumber() != null) return false;

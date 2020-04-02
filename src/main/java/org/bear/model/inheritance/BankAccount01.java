@@ -2,19 +2,13 @@ package org.bear.model.inheritance;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "bank_account")
-public class BankAccount extends BillingDetails {
+//Table-per-class with unions inheritance strategy example
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
-	private Long id;
+@Entity
+@Table(catalog = "sample", schema = "\"public\"", name = "bank_account01")
+public class BankAccount01 extends BillingDetails01 {
 
 	@Column(name = "account", nullable = false)
 	private String account;
@@ -24,14 +18,6 @@ public class BankAccount extends BillingDetails {
 
 	@Column(name = "swift", nullable = false)
 	private String swift;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getAccount() {
 		return account;
@@ -45,8 +31,8 @@ public class BankAccount extends BillingDetails {
 		return bankName;
 	}
 
-	public void setBankName(String bankname) {
-		this.bankName = bankname;
+	public void setBankName(String bankName) {
+		this.bankName = bankName;
 	}
 
 	public String getSwift() {
@@ -62,9 +48,8 @@ public class BankAccount extends BillingDetails {
 		if(this == o) return true;
 		if(o == null || getClass() != o.getClass()) return false;
 
-		BankAccount that = (BankAccount) o;
+		BankAccount01 that = (BankAccount01) o;
 
-		if(getId() != null ? !getId().equals(that.getId()) : that.getId() != null) return false;
 		if(getAccount() != null ? !getAccount().equals(that.getAccount()) : that.getAccount() != null) return false;
 		if(getBankName() != null ? !getBankName().equals(that.getBankName()) : that.getBankName() != null) return false;
 		return getSwift() != null ? getSwift().equals(that.getSwift()) : that.getSwift() == null;
@@ -72,8 +57,7 @@ public class BankAccount extends BillingDetails {
 
 	@Override
 	public int hashCode() {
-		int result = getId() != null ? getId().hashCode() : 0;
-		result = 31 * result + (getAccount() != null ? getAccount().hashCode() : 0);
+		int result = getAccount() != null ? getAccount().hashCode() : 0;
 		result = 31 * result + (getBankName() != null ? getBankName().hashCode() : 0);
 		result = 31 * result + (getSwift() != null ? getSwift().hashCode() : 0);
 		return result;
@@ -81,10 +65,9 @@ public class BankAccount extends BillingDetails {
 
 	@Override
 	public String toString() {
-		return "BankAccount{" +
-				"id=" + id +
-				", account='" + account + '\'' +
-				", bankname='" + bankName + '\'' +
+		return "BankAccount01{" +
+				"account='" + account + '\'' +
+				", bankName='" + bankName + '\'' +
 				", swift='" + swift + '\'' +
 				'}';
 	}
