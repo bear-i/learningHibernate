@@ -93,44 +93,79 @@ INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit) VALUES(2
 INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit) VALUES(2122,'Three Way Lines',105,30000.00);
 INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit) VALUES(2120,'Rico Enterprises',102,50000.00);
 INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit) VALUES(2106,'Fred Lewis Corp.',102,65000.00);
-INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit) VALUES(2119,'Solomon Inc.',109,25000.00);
-INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit) VALUES(2118,'Midwest Systems',108,60000.00);
-INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit) VALUES(2113,'Ian & Schmidt',104,20000.00);
-INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit) VALUES(2109,'Chen Associates',103,25000.00);
-INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit) VALUES(2105,'AAA Investments',101,45000.00);
+INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit)
+VALUES (2119, 'Solomon Inc.', 109, 25000.00);
+INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit)
+VALUES (2118, 'Midwest Systems', 108, 60000.00);
+INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit)
+VALUES (2113, 'Ian & Schmidt', 104, 20000.00);
+INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit)
+VALUES (2109, 'Chen Associates', 103, 25000.00);
+INSERT INTO CUSTOMER (cust_num, company, cust_consultant, credit_limit)
+VALUES (2105, 'AAA Investments', 101, 45000.00);
 commit;
 
 ---
 ---  "order"
 ---
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (112961,'2007-12-17',2117,106,'REI','2A44L',7,31500.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (113012,'2008-01-11',2111,105,'ACI','41003',35,3745.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (112989,'2008-01-03',2101,106,'FEA','114',6,1458.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (113051,'2008-02-10',2118,108,'QSA','XK47',4,1420.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (112968,'2007-10-12',2102,101,'ACI','41004',34,3978.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (113036,'2008-01-30',2107,110,'ACI','4100Z',9,22500.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (113045,'2008-02-02',2112,108,'REI','2A44R',10,45000.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (112963,'2007-12-17',2103,105,'ACI','41004',28,3276.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (113013,'2008-01-14',2118,108,'BIC','41003',1,652.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (113058,'2008-02-23',2108,109,'FEA','112',10,1480.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (112997,'2008-01-08',2124,107,'BIC','41003',1,652.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (112983,'2007-12-27',2103,105,'ACI','41004',6,702.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (113024,'2008-01-20',2114,108,'QSA','XK47',20,7100.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (113062,'2008-02-24',2124,107,'FEA','114',10,2430.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (112979,'2007-10-12',2114,102,'ACI','4100Z',6,15000.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (113027,'2008-01-22',2103,105,'ACI','41002',54,4104.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (113007,'2008-01-08',2112,108,'IMM','773C',3,2925.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (113069,'2008-03-02',2109,107,'IMM','775C',22,31350.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (113034,'2008-01-29',2107,110,'REI','2A45C',8,632.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (112992,'2007-11-04',2118,108,'ACI','41002',10,760.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (112975,'2007-10-12',2111,103,'REI','2A44G',6,2100.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (113055,'2008-02-15',2108,101,'ACI','4100X',6,150.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (113048,'2008-02-10',2120,102,'IMM','779C',2,3750.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (112993,'2007-01-04',2106,102,'REI','2A45C',24,1896.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (113065,'2008-02-27',2106,102,'QSA','XK47',6,2130.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (113003,'2008-01-25',2108,109,'IMM','779C',3,5625.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (113049,'2008-02-10',2118,108,'QSA','XK47',2,776.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (112987,'2007-12-31',2103,105,'ACI','4100Y',11,27500.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (113057,'2008-02-18',2111,103,'ACI','4100X',24,600.00);
-INSERT INTO "order" (order_num, order_date, cust, consultant, series, serial_number, quantity, amount) VALUES (113042,'2008-02-20',2113,101,'REI','2A44R',5,22500.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (112961, '2007-12-17', 2117, 106, 'REI', '2A44L', 7, 31500.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (113012, '2008-01-11', 2111, 105, 'ACI', '41003', 35, 3745.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (112989, '2008-01-03', 2101, 106, 'FEA', '114', 6, 1458.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (113051, '2008-02-10', 2118, 108, 'QSA', 'XK47', 4, 1420.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (112968, '2007-10-12', 2102, 101, 'ACI', '41004', 34, 3978.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (113036, '2008-01-30', 2107, 110, 'ACI', '4100Z', 9, 22500.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (113045, '2008-02-02', 2112, 108, 'REI', '2A44R', 10, 45000.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (112963, '2007-12-17', 2103, 105, 'ACI', '41004', 28, 3276.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (113013, '2008-01-14', 2118, 108, 'BIC', '41003', 1, 652.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (113058, '2008-02-23', 2108, 109, 'FEA', '112', 10, 1480.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (112997, '2008-01-08', 2124, 107, 'BIC', '41003', 1, 652.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (112983, '2007-12-27', 2103, 105, 'ACI', '41004', 6, 702.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (113024, '2008-01-20', 2114, 108, 'QSA', 'XK47', 20, 7100.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (113062, '2008-02-24', 2124, 107, 'FEA', '114', 10, 2430.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (112979, '2007-10-12', 2114, 102, 'ACI', '4100Z', 6, 15000.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (113027, '2008-01-22', 2103, 105, 'ACI', '41002', 54, 4104.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (113007, '2008-01-08', 2112, 108, 'IMM', '773C', 3, 2925.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (113069, '2008-03-02', 2109, 107, 'IMM', '775C', 22, 31350.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (113034, '2008-01-29', 2107, 110, 'REI', '2A45C', 8, 632.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (112992, '2007-11-04', 2118, 108, 'ACI', '41002', 10, 760.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (112975, '2007-10-12', 2111, 103, 'REI', '2A44G', 6, 2100.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (113055, '2008-02-15', 2108, 101, 'ACI', '4100X', 6, 150.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (113048, '2008-02-10', 2120, 102, 'IMM', '779C', 2, 3750.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (112993, '2007-01-04', 2106, 102, 'REI', '2A45C', 24, 1896.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (113065, '2008-02-27', 2106, 102, 'QSA', 'XK47', 6, 2130.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (113003, '2008-01-25', 2108, 109, 'IMM', '779C', 3, 5625.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (113049, '2008-02-10', 2118, 108, 'QSA', 'XK47', 2, 776.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (112987, '2007-12-31', 2103, 105, 'ACI', '4100Y', 11, 27500.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (113057, '2008-02-18', 2111, 103, 'ACI', '4100X', 24, 600.00);
+INSERT INTO "order" (order_num, order_date, cust, consultant, product_series, product_serial_number, quantity, amount)
+VALUES (113042, '2008-02-20', 2113, 101, 'REI', '2A44R', 5, 22500.00);
 commit;

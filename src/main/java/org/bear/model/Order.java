@@ -43,8 +43,8 @@ public class Order {
 
     @ManyToOne
 	@JoinColumns({
-			@JoinColumn(name = "series", referencedColumnName = "series"),
-			@JoinColumn(name = "serial_number", referencedColumnName = "serial_number")})
+			@JoinColumn(name = "product_series", referencedColumnName = "series"),
+			@JoinColumn(name = "product_serial_number", referencedColumnName = "serial_number")})
 	private Product product;
 
     @Column(name = "quantity", nullable = false)
