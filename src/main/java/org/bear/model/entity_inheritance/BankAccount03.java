@@ -1,15 +1,15 @@
-package org.bear.model.inheritance;
+package org.bear.model.entity_inheritance;
 
-//Single-table inheritance strategy example
+//Joined-tables inheritance strategy example
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@DiscriminatorValue("bank_account")
-public class BankAccount02 extends BillingDetails02 {
+@PrimaryKeyJoinColumn(name = "bank_account_id")
+public class BankAccount03 extends BillingDetails03 {
 
 	@NotNull
 	@Column(name = "account")

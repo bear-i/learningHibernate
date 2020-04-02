@@ -1,15 +1,15 @@
-package org.bear.model.inheritance;
+package org.bear.model.entity_inheritance;
 
-//Single-table inheritance strategy example
+//Joined-tables inheritance strategy example
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@DiscriminatorValue("credit_card")
-public class CreditCard02 extends BillingDetails02 {
+@PrimaryKeyJoinColumn(name = "credit_card_id")
+public class CreditCard03 extends BillingDetails03 {
 
 	@NotNull
 	@Column(name = "card_number")
@@ -78,3 +78,4 @@ public class CreditCard02 extends BillingDetails02 {
 				'}';
 	}
 }
+

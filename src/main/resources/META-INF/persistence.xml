@@ -13,8 +13,8 @@
 		<class>org.bear.model.Office</class>
 		<class>org.bear.model.Order</class>
 		<class>org.bear.model.CustomerProfile</class>
-		<class>org.bear.model.inheritance.BankAccount00</class>
-		<class>org.bear.model.inheritance.CreditCard00</class>
+		<class>org.bear.model.entity_inheritance.BankAccount00</class>
+		<class>org.bear.model.entity_inheritance.CreditCard00</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>

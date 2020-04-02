@@ -1,4 +1,4 @@
-package org.bear.model.inheritance;
+package org.bear.model.entity_inheritance;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

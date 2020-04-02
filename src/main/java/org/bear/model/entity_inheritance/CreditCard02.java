@@ -1,42 +1,27 @@
-package org.bear.model.inheritance;
+package org.bear.model.entity_inheritance;
 
-import javax.persistence.AttributeOverride;
+//Single-table inheritance strategy example
+
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-//Mapped superclass inheritance strategy example
+import javax.validation.constraints.NotNull;
 
 @Entity
-@AttributeOverride(name = "owner",
-		column = @Column(name = "CC_OWNER", nullable = false))
-@Table(catalog = "sample", schema = "\"public\"", name = "credit_card")
-public class CreditCard00 extends BillingDetails00 {
+@DiscriminatorValue("credit_card")
+public class CreditCard02 extends BillingDetails02 {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
-	private Long id;
-
-	@Column(name = "card_number", nullable = false)
+	@NotNull
+	@Column(name = "card_number")
 	private String cardNumber;
 
-	@Column(name = "exp_month", nullable = false)
+	@NotNull
+	@Column(name = "exp_month")
 	private String expMonth;
 
-	@Column(name = "exp_year", nullable = false)
+	@NotNull
+	@Column(name = "exp_year")
 	private String expYear;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getCardNumber() {
 		return cardNumber;
@@ -66,10 +51,10 @@ public class CreditCard00 extends BillingDetails00 {
 	public boolean equals(Object o) {
 		if(this == o) return true;
 		if(o == null || getClass() != o.getClass()) return false;
+		if(!super.equals(o)) return false;
 
-		CreditCard00 that = (CreditCard00) o;
+		CreditCard02 that = (CreditCard02) o;
 
-		if(getId() != null ? !getId().equals(that.getId()) : that.getId() != null) return false;
 		if(getCardNumber() != null ? !getCardNumber().equals(that.getCardNumber()) : that.getCardNumber() != null) return false;
 		if(getExpMonth() != null ? !getExpMonth().equals(that.getExpMonth()) : that.getExpMonth() != null) return false;
 		return getExpYear() != null ? getExpYear().equals(that.getExpYear()) : that.getExpYear() == null;
@@ -77,7 +62,7 @@ public class CreditCard00 extends BillingDetails00 {
 
 	@Override
 	public int hashCode() {
-		int result = getId() != null ? getId().hashCode() : 0;
+		int result = super.hashCode();
 		result = 31 * result + (getCardNumber() != null ? getCardNumber().hashCode() : 0);
 		result = 31 * result + (getExpMonth() != null ? getExpMonth().hashCode() : 0);
 		result = 31 * result + (getExpYear() != null ? getExpYear().hashCode() : 0);
@@ -86,9 +71,8 @@ public class CreditCard00 extends BillingDetails00 {
 
 	@Override
 	public String toString() {
-		return "CreditCard{" +
-				"id=" + id +
-				", cardNumber='" + cardNumber + '\'' +
+		return "CreditCard02{" +
+				"cardNumber='" + cardNumber + '\'' +
 				", expMonth='" + expMonth + '\'' +
 				", expYear='" + expYear + '\'' +
 				'}';
