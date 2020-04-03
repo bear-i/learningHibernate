@@ -1,9 +1,6 @@
-package org.bear.model.inheritance;
-
-//Single-table inheritance strategy example
+package org.bear.model.entity_inheritance;
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,13 +8,15 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
+//Joined-tables inheritance strategy example
+
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "billing_details_type")
-public abstract class BillingDetails02 {
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class BillingDetails03 {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	private Long id;
 
 	@Column(name = "owner", nullable = false)

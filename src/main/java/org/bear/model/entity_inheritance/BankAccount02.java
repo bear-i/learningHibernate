@@ -1,22 +1,26 @@
-package org.bear.model.inheritance;
+package org.bear.model.entity_inheritance;
+
+//Single-table inheritance strategy example
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Table;
-
-//Table-per-class with unions inheritance strategy example
+import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(catalog = "sample", schema = "\"public\"", name = "bank_account01")
-public class BankAccount01 extends BillingDetails01 {
+@DiscriminatorValue("bank_account")
+public class BankAccount02 extends BillingDetails02 {
 
-	@Column(name = "account", nullable = false)
+	@NotNull
+	@Column(name = "account")
 	private String account;
 
-	@Column(name = "bank_name", nullable = false)
+	@NotNull
+	@Column(name = "bank_name")
 	private String bankName;
 
-	@Column(name = "swift", nullable = false)
+	@NotNull
+	@Column(name = "swift")
 	private String swift;
 
 	public String getAccount() {
@@ -48,7 +52,7 @@ public class BankAccount01 extends BillingDetails01 {
 		if(this == o) return true;
 		if(o == null || getClass() != o.getClass()) return false;
 
-		BankAccount01 that = (BankAccount01) o;
+		BankAccount02 that = (BankAccount02) o;
 
 		if(getAccount() != null ? !getAccount().equals(that.getAccount()) : that.getAccount() != null) return false;
 		if(getBankName() != null ? !getBankName().equals(that.getBankName()) : that.getBankName() != null) return false;
@@ -65,7 +69,7 @@ public class BankAccount01 extends BillingDetails01 {
 
 	@Override
 	public String toString() {
-		return "BankAccount01{" +
+		return "BankAccount02{" +
 				"account='" + account + '\'' +
 				", bankName='" + bankName + '\'' +
 				", swift='" + swift + '\'' +

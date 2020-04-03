@@ -1,6 +1,9 @@
-package org.bear.model.inheritance;
+package org.bear.model.entity_inheritance;
+
+//Single-table inheritance strategy example
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,11 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
-//Table-per-class with unions inheritance strategy example
-
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class BillingDetails01 {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "billing_details_type")
+public abstract class BillingDetails02 {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -42,7 +44,7 @@ public abstract class BillingDetails01 {
 		if(this == o) return true;
 		if(o == null || getClass() != o.getClass()) return false;
 
-		BillingDetails01 that = (BillingDetails01) o;
+		BillingDetails02 that = (BillingDetails02) o;
 
 		if(getId() != null ? !getId().equals(that.getId()) : that.getId() != null) return false;
 		return getOwner() != null ? getOwner().equals(that.getOwner()) : that.getOwner() == null;
@@ -57,7 +59,7 @@ public abstract class BillingDetails01 {
 
 	@Override
 	public String toString() {
-		return "BillingDetails01{" +
+		return "BillingDetails02{" +
 				"id=" + id +
 				", owner='" + owner + '\'' +
 				'}';
