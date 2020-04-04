@@ -10,11 +10,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
 @Entity
+@Table(catalog = "sample", schema = "\"public\"", name = "billing_details_single_table")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "billing_details_type")
-public abstract class BillingDetails02 {
+public abstract class BillingDetailsSingleTableStrategy {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -44,7 +46,7 @@ public abstract class BillingDetails02 {
 		if(this == o) return true;
 		if(o == null || getClass() != o.getClass()) return false;
 
-		BillingDetails02 that = (BillingDetails02) o;
+		BillingDetailsSingleTableStrategy that = (BillingDetailsSingleTableStrategy) o;
 
 		if(getId() != null ? !getId().equals(that.getId()) : that.getId() != null) return false;
 		return getOwner() != null ? getOwner().equals(that.getOwner()) : that.getOwner() == null;

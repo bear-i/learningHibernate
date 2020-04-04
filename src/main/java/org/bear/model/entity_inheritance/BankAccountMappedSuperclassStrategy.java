@@ -1,27 +1,39 @@
 package org.bear.model.entity_inheritance;
 
-//Joined-tables inheritance strategy example
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.validation.constraints.NotNull;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+//Mapped superclass inheritance strategy example
 
 @Entity
-@PrimaryKeyJoinColumn(name = "bank_account_id")
-public class BankAccount03 extends BillingDetails03 {
+@Table(name = "bank_account_mapped_superclass")
+public class BankAccountMappedSuperclassStrategy extends BillingDetailsMappedSuperclassStrategy {
 
-	@NotNull
-	@Column(name = "account")
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
+	private Long id;
+
+	@Column(name = "account", nullable = false)
 	private String account;
 
-	@NotNull
-	@Column(name = "bank_name")
+	@Column(name = "bank_name", nullable = false)
 	private String bankName;
 
-	@NotNull
-	@Column(name = "swift")
+	@Column(name = "swift", nullable = false)
 	private String swift;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getAccount() {
 		return account;
@@ -35,8 +47,8 @@ public class BankAccount03 extends BillingDetails03 {
 		return bankName;
 	}
 
-	public void setBankName(String bankName) {
-		this.bankName = bankName;
+	public void setBankName(String bankname) {
+		this.bankName = bankname;
 	}
 
 	public String getSwift() {
@@ -52,8 +64,9 @@ public class BankAccount03 extends BillingDetails03 {
 		if(this == o) return true;
 		if(o == null || getClass() != o.getClass()) return false;
 
-		BankAccount02 that = (BankAccount02) o;
+		BankAccountMappedSuperclassStrategy that = (BankAccountMappedSuperclassStrategy) o;
 
+		if(getId() != null ? !getId().equals(that.getId()) : that.getId() != null) return false;
 		if(getAccount() != null ? !getAccount().equals(that.getAccount()) : that.getAccount() != null) return false;
 		if(getBankName() != null ? !getBankName().equals(that.getBankName()) : that.getBankName() != null) return false;
 		return getSwift() != null ? getSwift().equals(that.getSwift()) : that.getSwift() == null;
@@ -61,7 +74,8 @@ public class BankAccount03 extends BillingDetails03 {
 
 	@Override
 	public int hashCode() {
-		int result = getAccount() != null ? getAccount().hashCode() : 0;
+		int result = getId() != null ? getId().hashCode() : 0;
+		result = 31 * result + (getAccount() != null ? getAccount().hashCode() : 0);
 		result = 31 * result + (getBankName() != null ? getBankName().hashCode() : 0);
 		result = 31 * result + (getSwift() != null ? getSwift().hashCode() : 0);
 		return result;
@@ -69,9 +83,10 @@ public class BankAccount03 extends BillingDetails03 {
 
 	@Override
 	public String toString() {
-		return "BankAccount02{" +
-				"account='" + account + '\'' +
-				", bankName='" + bankName + '\'' +
+		return "BankAccount{" +
+				"id=" + id +
+				", account='" + account + '\'' +
+				", bankname='" + bankName + '\'' +
 				", swift='" + swift + '\'' +
 				'}';
 	}

@@ -1,15 +1,15 @@
 package org.bear.model.entity_inheritance;
 
-//Single-table inheritance strategy example
+//Joined-tables inheritance strategy example
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@DiscriminatorValue("bank_account")
-public class BankAccount02 extends BillingDetails02 {
+@PrimaryKeyJoinColumn(name = "bank_account_id")
+public class BankAccountJoinedTablesStrategy extends BillingDetailsJoinedTablesStrategy {
 
 	@NotNull
 	@Column(name = "account")
@@ -52,7 +52,7 @@ public class BankAccount02 extends BillingDetails02 {
 		if(this == o) return true;
 		if(o == null || getClass() != o.getClass()) return false;
 
-		BankAccount02 that = (BankAccount02) o;
+		BankAccountSingleTableStrategy that = (BankAccountSingleTableStrategy) o;
 
 		if(getAccount() != null ? !getAccount().equals(that.getAccount()) : that.getAccount() != null) return false;
 		if(getBankName() != null ? !getBankName().equals(that.getBankName()) : that.getBankName() != null) return false;
