@@ -7,16 +7,6 @@
 
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-		<class>org.bear.model.Employee</class>
-		<class>org.bear.model.Product</class>
-		<class>org.bear.model.Customer</class>
-		<class>org.bear.model.Office</class>
-		<class>org.bear.model.Order</class>
-		<class>org.bear.model.CustomerProfile</class>
-		<class>org.bear.model.entity_inheritance.BankAccountMappedSuperclassStrategy</class>
-		<class>org.bear.model.entity_inheritance.CreditCardMappedSuperclassStrategy</class>
-		<class>org.bear.model.entity_inheritance.CreditCardMappedSuperclassStrategy</class>
-
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/sample"/>
