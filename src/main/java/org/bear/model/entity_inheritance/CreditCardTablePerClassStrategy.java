@@ -7,8 +7,8 @@ import javax.persistence.Table;
 //Table-per-class with unions inheritance strategy example
 
 @Entity
-@Table(catalog = "sample", schema = "\"public\"", name = "credit_card01")
-public class CreditCard01 extends BillingDetails01 {
+@Table(catalog = "sample", schema = "\"public\"", name = "credit_card_table_per_class")
+public class CreditCardTablePerClassStrategy extends BillingDetailsTablePerClassStrategy {
 
 	@Column(name = "card_number", nullable = false)
 	private String cardNumber;
@@ -49,7 +49,7 @@ public class CreditCard01 extends BillingDetails01 {
 		if(o == null || getClass() != o.getClass()) return false;
 		if(!super.equals(o)) return false;
 
-		CreditCard01 that = (CreditCard01) o;
+		CreditCardTablePerClassStrategy that = (CreditCardTablePerClassStrategy) o;
 
 		if(getCardNumber() != null ? !getCardNumber().equals(that.getCardNumber()) : that.getCardNumber() != null) return false;
 		if(getExpMonth() != null ? !getExpMonth().equals(that.getExpMonth()) : that.getExpMonth() != null) return false;

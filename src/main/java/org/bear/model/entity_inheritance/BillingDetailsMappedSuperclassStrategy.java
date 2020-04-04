@@ -5,7 +5,7 @@ import javax.persistence.MappedSuperclass;
 //Mapped superclass inheritance strategy example
 
 @MappedSuperclass
-public abstract class BillingDetails00 {
+public abstract class BillingDetailsMappedSuperclassStrategy {
 
 	private String owner;
 

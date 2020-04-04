@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @DiscriminatorValue("credit_card")
-public class CreditCard02 extends BillingDetails02 {
+public class CreditCardSingleTableStrategy extends BillingDetailsSingleTableStrategy {
 
 	@NotNull
 	@Column(name = "card_number")
@@ -53,7 +53,7 @@ public class CreditCard02 extends BillingDetails02 {
 		if(o == null || getClass() != o.getClass()) return false;
 		if(!super.equals(o)) return false;
 
-		CreditCard02 that = (CreditCard02) o;
+		CreditCardSingleTableStrategy that = (CreditCardSingleTableStrategy) o;
 
 		if(getCardNumber() != null ? !getCardNumber().equals(that.getCardNumber()) : that.getCardNumber() != null) return false;
 		if(getExpMonth() != null ? !getExpMonth().equals(that.getExpMonth()) : that.getExpMonth() != null) return false;

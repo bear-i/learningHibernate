@@ -7,16 +7,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
-//Joined-tables inheritance strategy example
+//Table-per-class with unions inheritance strategy example
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-public abstract class BillingDetails03 {
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Table(catalog = "sample", schema = "\"public\"", name = "billing_details_table_per_class")
+public abstract class BillingDetailsTablePerClassStrategy {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
 	private Long id;
 
 	@Column(name = "owner", nullable = false)
@@ -43,7 +44,7 @@ public abstract class BillingDetails03 {
 		if(this == o) return true;
 		if(o == null || getClass() != o.getClass()) return false;
 
-		BillingDetails02 that = (BillingDetails02) o;
+		BillingDetailsTablePerClassStrategy that = (BillingDetailsTablePerClassStrategy) o;
 
 		if(getId() != null ? !getId().equals(that.getId()) : that.getId() != null) return false;
 		return getOwner() != null ? getOwner().equals(that.getOwner()) : that.getOwner() == null;
@@ -58,7 +59,7 @@ public abstract class BillingDetails03 {
 
 	@Override
 	public String toString() {
-		return "BillingDetails02{" +
+		return "BillingDetails01{" +
 				"id=" + id +
 				", owner='" + owner + '\'' +
 				'}';
