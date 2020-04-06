@@ -15,7 +15,7 @@ import javax.persistence.Table;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "customer")
+@Table(catalog = "sample", schema = "public", name = "customer")
 public class Customer {
 
 	@Id
