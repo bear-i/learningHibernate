@@ -19,39 +19,39 @@ import java.util.Date;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-@Table(catalog = "sample", schema = "public", name = "\"order\"")
+@Table(name = "\"order\"")
 public class Order {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "order_generator")
-	@SequenceGenerator(name = "order_generator", sequenceName = "order_seq", allocationSize = 1)
-	@Column(name = "order_num")
-	private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "order-generator")
+    @SequenceGenerator(name = "order-generator", sequenceName = "order_seq", allocationSize = 1)
+    @Column(name = "order_num")
+    private Integer id;
 
-	@Temporal(TemporalType.DATE)
-	@CreationTimestamp
-	@Column(name = "order_date", nullable = false, updatable = false)
-	private Date orderDate;
-
-	@ManyToOne
-	@JoinColumn(name = "cust", nullable = false)
-	private Customer customer;
+    @Temporal(TemporalType.DATE)
+    @CreationTimestamp
+    @Column(name = "order_date", nullable = false, updatable = false)
+    private Date orderDate;
 
 	@ManyToOne
-	@JoinColumn(name = "consultant")
-	private Employee consultant;
+    @JoinColumn(name = "cust", nullable = false)
+    private Customer customer;
 
-	@ManyToOne
+    @ManyToOne
+    @JoinColumn(name = "consultant")
+    private Employee consultant;
+
+    @ManyToOne
 	@JoinColumns({
-			@JoinColumn(name = "product_series", referencedColumnName = "series"),
-			@JoinColumn(name = "product_serial_number", referencedColumnName = "serial_number")})
+			@JoinColumn(name = "mfr", referencedColumnName = "mfr_id"),
+			@JoinColumn(name = "product", referencedColumnName = "product_id")})
 	private Product product;
 
-	@Column(name = "quantity", nullable = false)
-	private Integer quantity;
+    @Column(name = "qty", nullable = false)
+    private Integer quantity;
 
-	@Column(name = "amount", nullable = false)
-	private BigDecimal amount;
+    @Column(name = "amount", nullable = false)
+    private BigDecimal amount;
 
 	public Integer getId() {
 		return id;
@@ -144,7 +144,7 @@ public class Order {
 				", orderDate=" + orderDate +
 				", customer=" + customer.getId() +
 				", consultant=" + consultant.getId() +
-				", product=" + product.getProductIdentificator() +
+				", product=" + product.getPrimaryKey() +
 				", quantity=" + quantity +
 				", amount=" + amount +
 				'}';

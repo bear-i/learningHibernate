@@ -21,7 +21,7 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-@Table(catalog = "sample", schema = "public", name = "employee")
+@Table(name = "employee")
 public class Employee {
 
 	@Id
@@ -178,7 +178,7 @@ public class Employee {
 				'}';
 	}
 
-	public static class TitleConverter implements AttributeConverter<Title, String> {
+	public static class TitleConverter implements AttributeConverter<Title, String>{
 
 		public String convertToDatabaseColumn(Title title) {
 			return title.toString();
