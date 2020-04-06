@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(catalog = "sample", schema = "public", name = "customer_profile")
+@Table(name = "customer_profile")
 public class CustomerProfile {
 
 	@Id
@@ -39,7 +39,7 @@ public class CustomerProfile {
 	@OneToOne
 	@MapsId
 	@JoinColumn(name = "cust_num", nullable = false)
-	private Customer customer;
+	private	Customer customer;
 
 	public Integer getId() {
 		return id;

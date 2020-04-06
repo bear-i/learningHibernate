@@ -13,11 +13,11 @@ import org.hibernate.annotations.ColumnTransformer;
 import org.hibernate.annotations.Formula;
 
 @Entity
-@Table(catalog = "sample", schema = "public", name = "product")
+@Table(name = "product")
 public class Product {
 
 	@EmbeddedId
-	private ProductIdentificator productIdentificator;
+	private PrimaryKey primaryKey;
 
 	@Column(name = "description", nullable = false, length = 20)
 	private String description;
@@ -29,18 +29,18 @@ public class Product {
 	)
 	private BigDecimal price;
 
-	@Column(name = "quantity_on_hand", nullable = false)
+	@Column(name = "qty_on_hand", nullable = false)
 	private Integer quantityOnHand;
 
 	@Formula(value = "price * qty_on_hand")
 	private BigDecimal maxPrice;
 
-	public ProductIdentificator getProductIdentificator() {
-		return productIdentificator;
+	public PrimaryKey getPrimaryKey() {
+		return primaryKey;
 	}
 
-	public void setProductIdentificator(ProductIdentificator productIdentificator) {
-		this.productIdentificator = productIdentificator;
+	public void setPrimaryKey(PrimaryKey primaryKey) {
+		this.primaryKey = primaryKey;
 	}
 
 	public String getDescription() {
@@ -78,7 +78,7 @@ public class Product {
 
 		Product product = (Product) o;
 
-		if(!getProductIdentificator().equals(product.getProductIdentificator())) return false;
+		if(!getPrimaryKey().equals(product.getPrimaryKey())) return false;
 		if(!getDescription().equals(product.getDescription())) return false;
 		if(!getPrice().equals(product.getPrice())) return false;
 		return getQuantityOnHand().equals(product.getQuantityOnHand());
@@ -86,7 +86,7 @@ public class Product {
 
 	@Override
 	public int hashCode() {
-		int result = getProductIdentificator().hashCode();
+		int result = getPrimaryKey().hashCode();
 		result = 31 * result + getDescription().hashCode();
 		result = 31 * result + getPrice().hashCode();
 		result = 31 * result + getQuantityOnHand().hashCode();
@@ -96,7 +96,7 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product{" +
-				"productIdentificator=" + productIdentificator +
+				"primaryKey=" + primaryKey +
 				", description='" + description + '\'' +
 				", price=" + price +
 				", quantityOnHand=" + quantityOnHand +
@@ -105,28 +105,28 @@ public class Product {
 	}
 
 	@Embeddable
-	public static class ProductIdentificator implements Serializable {
+	public static class PrimaryKey implements Serializable {
 
-		@Column(name = "series", nullable = false, updatable = false, length = 3)
-		private String series;
+		@Column(name = "mfr_id", nullable = false, updatable = false, length = 3)
+		private String mfr;
 
-		@Column(name = "serial_number", nullable = false, updatable = false, length = 5)
-		private String serial_number;
+		@Column(name = "product_id", nullable = false, updatable = false, length = 5)
+		private String product;
 
-		public String getSeries() {
-			return series;
+		public String getMfr() {
+			return mfr;
 		}
 
-		public void setSeries(String series) {
-			this.series = series;
+		public void setMfr(String mfr) {
+			this.mfr = mfr;
 		}
 
-		public String getSerial_number() {
-			return serial_number;
+		public String getProduct() {
+			return product;
 		}
 
-		public void setSerial_number(String serial_number) {
-			this.serial_number = serial_number;
+		public void setProduct(String product) {
+			this.product = product;
 		}
 
 		@Override
@@ -134,24 +134,24 @@ public class Product {
 			if(this == o) return true;
 			if(o == null || getClass() != o.getClass()) return false;
 
-			ProductIdentificator that = (ProductIdentificator) o;
+			PrimaryKey primaryKey = (PrimaryKey) o;
 
-			if(getSeries() != null ? !getSeries().equals(that.getSeries()) : that.getSeries() != null) return false;
-			return getSerial_number() != null ? getSerial_number().equals(that.getSerial_number()) : that.getSerial_number() == null;
+			if(!getMfr().equals(primaryKey.getMfr())) return false;
+			return getProduct().equals(primaryKey.getProduct());
 		}
 
 		@Override
 		public int hashCode() {
-			int result = getSeries() != null ? getSeries().hashCode() : 0;
-			result = 31 * result + (getSerial_number() != null ? getSerial_number().hashCode() : 0);
+			int result = getMfr().hashCode();
+			result = 31 * result + getProduct().hashCode();
 			return result;
 		}
 
 		@Override
 		public String toString() {
-			return "ProductIdentificator{" +
-					"series='" + series + '\'' +
-					", serial_number='" + serial_number + '\'' +
+			return "PrimaryKey{" +
+					"mfr='" + mfr + '\'' +
+					", product='" + product + '\'' +
 					'}';
 		}
 	}
