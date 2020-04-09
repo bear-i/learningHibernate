@@ -24,7 +24,7 @@ public class ItemWithSortedSet {
 
 	@ElementCollection
 	@CollectionTable(name = "image_sorted_set_mapping")
-	@Column(name = "filename")
+	@Column(name = "filename", nullable = false)
 	@SortNatural
 	private SortedSet<String> images = new TreeSet<>();
 

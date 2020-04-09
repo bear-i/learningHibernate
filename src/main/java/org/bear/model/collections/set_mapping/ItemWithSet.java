@@ -26,7 +26,7 @@ public class ItemWithSet {
 			name = "image_set_mapping",
 			joinColumns = @JoinColumn(name = "item_id")
 	)
-	@Column(name = "filename")
+	@Column(name = "filename", nullable = false)
 	private Set<String> images = new HashSet<>();
 
 	public Long getId() {
