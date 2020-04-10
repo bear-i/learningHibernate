@@ -8,9 +8,6 @@ import org.hibernate.annotations.Parent;
 @Embeddable
 public class ImageForEmbeddableBag {
 
-	@Parent
-	private ItemWithEmbeddableBag item;
-
 	@Column(name = "title")
 	private String title;
 
@@ -22,14 +19,6 @@ public class ImageForEmbeddableBag {
 
 	@Column(name = "height")
 	private int height;
-
-	public ItemWithEmbeddableBag getItem() {
-		return item;
-	}
-
-	public void setItem(ItemWithEmbeddableBag item) {
-		this.item = item;
-	}
 
 	public String getTitle() {
 		return title;
@@ -72,15 +61,13 @@ public class ImageForEmbeddableBag {
 
 		if(getWidth() != that.getWidth()) return false;
 		if(getHeight() != that.getHeight()) return false;
-		if(item != null ? !item.getId().equals(that.item.getId()) : that.item != null) return false;
 		if(getTitle() != null ? !getTitle().equals(that.getTitle()) : that.getTitle() != null) return false;
 		return getFilename() != null ? getFilename().equals(that.getFilename()) : that.getFilename() == null;
 	}
 
 	@Override
 	public int hashCode() {
-		int result = item != null ? item.hashCode() : 0;
-		result = 31 * result + (getTitle() != null ? getTitle().hashCode() : 0);
+		int result = getTitle() != null ? getTitle().hashCode() : 0;
 		result = 31 * result + (getFilename() != null ? getFilename().hashCode() : 0);
 		result = 31 * result + getWidth();
 		result = 31 * result + getHeight();
