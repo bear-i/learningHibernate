@@ -1,4 +1,4 @@
-package org.bear.model.embeddable_collections;
+package org.bear.model.embeddable_collections.embeddable_set;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
