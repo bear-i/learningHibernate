@@ -3,8 +3,6 @@ package org.bear.model.embeddable_collections.embeddable_bag;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-import org.hibernate.annotations.Parent;
-
 @Embeddable
 public class ImageForEmbeddableBag {
 
