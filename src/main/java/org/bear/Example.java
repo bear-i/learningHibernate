@@ -4,8 +4,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import org.bear.model.one_to_one.join_table.ItemWithJoinTable;
-import org.bear.model.one_to_one.join_table.ShipmentWithJoinTable;
+import org.bear.model.one_to_many.one_to_many_with_bags.BidForOneToManyWithBags;
+import org.bear.model.one_to_many.one_to_many_with_bags.ItemWithOneToManyWithBags;
 
 public class Example {
 	public static void main(String[] args) {
@@ -15,12 +15,13 @@ public class Example {
 
 		entityManager.getTransaction().begin();
 
-		ShipmentWithJoinTable shipment1 = new ShipmentWithJoinTable();
-		entityManager.persist(shipment1);
+		ItemWithOneToManyWithBags item = new ItemWithOneToManyWithBags();
+		entityManager.persist(item);
 
-		ItemWithJoinTable item = new ItemWithJoinTable("Some Item");
-		ShipmentWithJoinTable shipment2 = new ShipmentWithJoinTable(item);
-		entityManager.persist(shipment2);
+		BidForOneToManyWithBags bid = new BidForOneToManyWithBags(item);
+		item.getBids().add(bid);
+		item.getBids().add(bid);
+		entityManager.persist(bid);
 
 		entityManager.getTransaction().commit();
 	}
