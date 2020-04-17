@@ -4,8 +4,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import org.bear.model.one_to_one.foreign_key_join_column.AddressWithForeignKeyJoinColumn;
-import org.bear.model.one_to_one.foreign_key_join_column.UserWithForeignKeyJoinColumn;
+import org.bear.model.one_to_one.join_table.ItemWithJoinTable;
+import org.bear.model.one_to_one.join_table.ShipmentWithJoinTable;
 
 public class Example {
 	public static void main(String[] args) {
@@ -15,11 +15,13 @@ public class Example {
 
 		entityManager.getTransaction().begin();
 
-		UserWithForeignKeyJoinColumn user = new UserWithForeignKeyJoinColumn();
-		AddressWithForeignKeyJoinColumn address = new AddressWithForeignKeyJoinColumn("CCCCCC", "street2", "city2");
-		user.setAddress(address);
+		ShipmentWithJoinTable shipment1 = new ShipmentWithJoinTable();
+		entityManager.persist(shipment1);
 
-		entityManager.persist(user);
+		ItemWithJoinTable item = new ItemWithJoinTable("Some Item");
+		ShipmentWithJoinTable shipment2 = new ShipmentWithJoinTable(item);
+		entityManager.persist(shipment2);
+
 		entityManager.getTransaction().commit();
 	}
 }
