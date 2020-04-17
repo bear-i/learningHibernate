@@ -4,8 +4,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import org.bear.model.one_to_one.foreign_key_generator.AddressWithForeignKeyGenerator;
-import org.bear.model.one_to_one.foreign_key_generator.UserWithForeignKeyGenerator;
+import org.bear.model.one_to_one.foreign_key_join_column.AddressWithForeignKeyJoinColumn;
+import org.bear.model.one_to_one.foreign_key_join_column.UserWithForeignKeyJoinColumn;
 
 public class Example {
 	public static void main(String[] args) {
@@ -15,8 +15,8 @@ public class Example {
 
 		entityManager.getTransaction().begin();
 
-		UserWithForeignKeyGenerator user = new UserWithForeignKeyGenerator();
-		AddressWithForeignKeyGenerator address = new AddressWithForeignKeyGenerator(user, "BBBBBB", "street1", "city1");
+		UserWithForeignKeyJoinColumn user = new UserWithForeignKeyJoinColumn();
+		AddressWithForeignKeyJoinColumn address = new AddressWithForeignKeyJoinColumn("CCCCCC", "street2", "city2");
 		user.setAddress(address);
 
 		entityManager.persist(user);
