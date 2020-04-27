@@ -4,8 +4,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import org.bear.model.one_to_many.one_to_many_with_join_table.ItemWithOneToManyWithJoinTable;
-import org.bear.model.one_to_many.one_to_many_with_join_table.UserWithOneToManyWithJoinTable;
+import org.bear.model.many_to_many.CategoryWithManyToMany;
+import org.bear.model.many_to_many.ItemWithManyToMany;
 
 public class Example {
 	public static void main(String[] args) {
@@ -14,12 +14,21 @@ public class Example {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 
 		entityManager.getTransaction().begin();
-		UserWithOneToManyWithJoinTable userWithOneToManyWithJoinTable = new UserWithOneToManyWithJoinTable();
 
-		ItemWithOneToManyWithJoinTable item1 = new ItemWithOneToManyWithJoinTable();
-		item1.setBuyer(userWithOneToManyWithJoinTable);
-		entityManager.persist(userWithOneToManyWithJoinTable);
-		entityManager.persist(item1);
+		CategoryWithManyToMany category1 = new CategoryWithManyToMany();
+		CategoryWithManyToMany category2 = new CategoryWithManyToMany();
+
+		ItemWithManyToMany item1 = new ItemWithManyToMany();
+		ItemWithManyToMany item2 = new ItemWithManyToMany();
+
+		category1.getItems().add(item1);
+		item1.getCategories().add(category1);
+
+		category2.getItems().add(item2);
+		item2.getCategories().add(category2);
+
+		entityManager.persist(category1);
+		entityManager.persist(category2);
 
 		entityManager.getTransaction().commit();
 	}
