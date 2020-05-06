@@ -1,4 +1,4 @@
-package org.bear.model.many_to_many;
+package org.bear.model.many_to_many.simple_many_to_many;
 
 import java.util.HashSet;
 import java.util.Set;
