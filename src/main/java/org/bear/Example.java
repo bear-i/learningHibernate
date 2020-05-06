@@ -4,9 +4,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import org.bear.model.many_to_many.many_to_many_with_intermediate_entity.CategorizedItem;
-import org.bear.model.many_to_many.many_to_many_with_intermediate_entity.CategoryWithManyToManyWithIntermediateEntity;
-import org.bear.model.many_to_many.many_to_many_with_intermediate_entity.ItemWithManyToManyWithIntermediateEntity;
+import org.bear.model.many_to_many.ternary_many_to_many.CategoryWithTernaryManyToMany;
+import org.bear.model.many_to_many.ternary_many_to_many.EmbeddableCategorizedItem;
+import org.bear.model.many_to_many.ternary_many_to_many.ItemWithTernaryManyToMany;
+import org.bear.model.many_to_many.ternary_many_to_many.UserWithTernaryManytoMany;
 
 public class Example {
 	public static void main(String[] args) {
@@ -16,23 +17,25 @@ public class Example {
 
 		entityManager.getTransaction().begin();
 
-		CategoryWithManyToManyWithIntermediateEntity someCategory = new CategoryWithManyToManyWithIntermediateEntity();
-		CategoryWithManyToManyWithIntermediateEntity otherCategory = new CategoryWithManyToManyWithIntermediateEntity();
+		CategoryWithTernaryManyToMany someCategory = new CategoryWithTernaryManyToMany();
+		CategoryWithTernaryManyToMany otherCategory = new CategoryWithTernaryManyToMany();
 		entityManager.persist(someCategory);
 		entityManager.persist(otherCategory);
 
-		ItemWithManyToManyWithIntermediateEntity someItem = new ItemWithManyToManyWithIntermediateEntity();
-		ItemWithManyToManyWithIntermediateEntity otherItem = new ItemWithManyToManyWithIntermediateEntity();
+		ItemWithTernaryManyToMany someItem = new ItemWithTernaryManyToMany();
+		ItemWithTernaryManyToMany otherItem = new ItemWithTernaryManyToMany();
 		entityManager.persist(someItem);
 		entityManager.persist(otherItem);
 
-		CategorizedItem linkOne = new CategorizedItem("johndoe", someCategory, someItem);
-		CategorizedItem linkTwo = new CategorizedItem("johndoe", someCategory, otherItem);
-		CategorizedItem linkThree = new CategorizedItem("johndoe", otherCategory, someItem);
+		UserWithTernaryManytoMany someUser = new UserWithTernaryManytoMany();
+		entityManager.persist(someUser);
 
-		entityManager.persist(linkOne);
-		entityManager.persist(linkTwo);
-		entityManager.persist(linkThree);
+		EmbeddableCategorizedItem linkOne = new EmbeddableCategorizedItem(someItem, someUser);
+		someCategory.getCategorizedItems().add(linkOne);
+		EmbeddableCategorizedItem linkTwo = new EmbeddableCategorizedItem(otherItem, someUser);
+		someCategory.getCategorizedItems().add(linkTwo);
+		EmbeddableCategorizedItem linkThree = new EmbeddableCategorizedItem(someItem, someUser);
+		otherCategory.getCategorizedItems().add(linkThree);
 
 		entityManager.getTransaction().commit();
 	}
