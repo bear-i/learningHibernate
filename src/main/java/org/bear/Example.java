@@ -4,8 +4,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import org.bear.model.many_to_many.CategoryWithManyToMany;
-import org.bear.model.many_to_many.ItemWithManyToMany;
+import org.bear.model.many_to_many.many_to_many_with_intermediate_entity.CategorizedItem;
+import org.bear.model.many_to_many.many_to_many_with_intermediate_entity.CategoryWithManyToManyWithIntermediateEntity;
+import org.bear.model.many_to_many.many_to_many_with_intermediate_entity.ItemWithManyToManyWithIntermediateEntity;
+import org.bear.model.many_to_many.simple_many_to_many.CategoryWithManyToMany;
+import org.bear.model.many_to_many.simple_many_to_many.ItemWithManyToMany;
 
 public class Example {
 	public static void main(String[] args) {
@@ -15,20 +18,23 @@ public class Example {
 
 		entityManager.getTransaction().begin();
 
-		CategoryWithManyToMany category1 = new CategoryWithManyToMany();
-		CategoryWithManyToMany category2 = new CategoryWithManyToMany();
+		CategoryWithManyToManyWithIntermediateEntity someCategory = new CategoryWithManyToManyWithIntermediateEntity();
+		CategoryWithManyToManyWithIntermediateEntity otherCategory = new CategoryWithManyToManyWithIntermediateEntity();
+		entityManager.persist(someCategory);
+		entityManager.persist(otherCategory);
 
-		ItemWithManyToMany item1 = new ItemWithManyToMany();
-		ItemWithManyToMany item2 = new ItemWithManyToMany();
+		ItemWithManyToManyWithIntermediateEntity someItem = new ItemWithManyToManyWithIntermediateEntity();
+		ItemWithManyToManyWithIntermediateEntity otherItem = new ItemWithManyToManyWithIntermediateEntity();
+		entityManager.persist(someItem);
+		entityManager.persist(otherItem);
 
-		category1.getItems().add(item1);
-		item1.getCategories().add(category1);
+		CategorizedItem linkOne = new CategorizedItem("johndoe", someCategory, someItem);
+		CategorizedItem linkTwo = new CategorizedItem("johndoe", someCategory, otherItem);
+		CategorizedItem linkThree = new CategorizedItem("johndoe", otherCategory, someItem);
 
-		category2.getItems().add(item2);
-		item2.getCategories().add(category2);
-
-		entityManager.persist(category1);
-		entityManager.persist(category2);
+		entityManager.persist(linkOne);
+		entityManager.persist(linkTwo);
+		entityManager.persist(linkThree);
 
 		entityManager.getTransaction().commit();
 	}
