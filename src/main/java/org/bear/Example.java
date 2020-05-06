@@ -7,8 +7,6 @@ import javax.persistence.Persistence;
 import org.bear.model.many_to_many.many_to_many_with_intermediate_entity.CategorizedItem;
 import org.bear.model.many_to_many.many_to_many_with_intermediate_entity.CategoryWithManyToManyWithIntermediateEntity;
 import org.bear.model.many_to_many.many_to_many_with_intermediate_entity.ItemWithManyToManyWithIntermediateEntity;
-import org.bear.model.many_to_many.simple_many_to_many.CategoryWithManyToMany;
-import org.bear.model.many_to_many.simple_many_to_many.ItemWithManyToMany;
 
 public class Example {
 	public static void main(String[] args) {
