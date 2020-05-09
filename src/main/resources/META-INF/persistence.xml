@@ -25,9 +25,9 @@
 			<!-- <property name="hibernate.hbm2ddl.import_files_sql_extractor" value="org.hibernate.tool.hbm2ddl.MultipleLinesSqlCommandExtractor"/>-->
 
 			<!-- <property name="hibernate.hbm2ddl.auto" value="update"/>-->
-			<!-- <property name="hibernate.show_sql" value="true"/>-->
-			<!-- <property name="hibernate.order_inserts" value="true"/>-->
-			<!-- <property name="hibernate.order_updates" value="true"/>-->
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.order_inserts" value="true"/>
+			<property name="hibernate.order_updates" value="true"/>
 
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL95Dialect"/>
 		</properties>
