@@ -16,11 +16,16 @@ public class Example {
 			entityManager = entityManagerFactory.createEntityManager();
 			entityManager.getTransaction().begin();
 
-			UserWithSingleColumnConstraint user = new UserWithSingleColumnConstraint("username");
-			entityManager.persist(user);
+			UserWithSingleColumnConstraint user = entityManager.find(UserWithSingleColumnConstraint.class, 1L);
+			System.out.println(user);
+
+			if(user != null) {
+				user.setUsername("Mew username");
+			}
 
 			entityManager.getTransaction().commit();
 		} catch(Exception e) {
+			e.printStackTrace();
 			//Transaction rollback
 		} finally {
 			if(entityManager != null && entityManager.isOpen()) {
