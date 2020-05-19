@@ -3,7 +3,6 @@ package org.bear;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.PersistenceUnitUtil;
 
 import org.bear.model.constraints.single_column_constraint.UserWithSingleColumnConstraint;
 
@@ -17,12 +16,9 @@ public class Example {
 			entityManager = entityManagerFactory.createEntityManager();
 			entityManager.getTransaction().begin();
 
-			UserWithSingleColumnConstraint user = entityManager.getReference(UserWithSingleColumnConstraint.class, 1L);
-			PersistenceUnitUtil persistenceUnitUtil = entityManagerFactory.getPersistenceUnitUtil();
-			System.out.println(persistenceUnitUtil.isLoaded(user));
-
-			System.out.println(user.getUsername());
-			System.out.println(persistenceUnitUtil.isLoaded(user));
+			UserWithSingleColumnConstraint user = entityManager.find(UserWithSingleColumnConstraint.class, 1L);
+			entityManager.remove(user);
+			System.out.println(entityManager.contains(user));
 
 			entityManager.getTransaction().commit();
 		} catch(Exception e) {
