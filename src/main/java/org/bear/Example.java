@@ -16,9 +16,14 @@ public class Example {
 			entityManager = entityManagerFactory.createEntityManager();
 			entityManager.getTransaction().begin();
 
-			UserWithSingleColumnConstraint user = entityManager.find(UserWithSingleColumnConstraint.class, 1L);
-			entityManager.remove(user);
-			System.out.println(entityManager.contains(user));
+			//Primary key depends on what you have in table
+			UserWithSingleColumnConstraint user1 = entityManager.find(UserWithSingleColumnConstraint.class, 6L);
+
+			user1.setUsername("Another username");
+			System.out.println(user1.getUsername());
+
+			entityManager.refresh(user1);
+			System.out.println(user1.getUsername());
 
 			entityManager.getTransaction().commit();
 		} catch(Exception e) {
