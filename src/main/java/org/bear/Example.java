@@ -17,13 +17,12 @@ public class Example {
 			entityManager.getTransaction().begin();
 
 			//Primary key depends on what you have in table
-			UserWithSingleColumnConstraint user1 = entityManager.find(UserWithSingleColumnConstraint.class, 6L);
+			UserWithSingleColumnConstraint detachedUser = entityManager.find(UserWithSingleColumnConstraint.class, 6L);
+			entityManager.detach(detachedUser);
+			System.out.println(entityManager.contains(detachedUser));
 
-			user1.setUsername("Another username");
-			System.out.println(user1.getUsername());
-
-			entityManager.refresh(user1);
-			System.out.println(user1.getUsername());
+			detachedUser.setUsername("New username");
+			entityManager.merge(detachedUser);
 
 			entityManager.getTransaction().commit();
 		} catch(Exception e) {
