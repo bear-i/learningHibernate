@@ -6,10 +6,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 @Entity
 @Table(catalog = "sample", schema = "public", name = "user_with_single_column_constraint")
 public class UserWithSingleColumnConstraint {
+
+	@Version
+	@Column(name = "instance_version")
+	private Long version;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,6 +39,10 @@ public class UserWithSingleColumnConstraint {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Long getVersion() {
+		return version;
 	}
 
 	public String getUsername() {
