@@ -8,7 +8,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.OptimisticLockType;
+import org.hibernate.annotations.OptimisticLocking;
+
 @Entity
+@OptimisticLocking(type = OptimisticLockType.ALL)
+@DynamicUpdate
 @Table(catalog = "sample", schema = "public", name = "user_with_unique_constraint",
 		uniqueConstraints = @UniqueConstraint(name = "unq_username_email", columnNames = {"username", "email"}))
 public class UserWithUniqueConstraint {
