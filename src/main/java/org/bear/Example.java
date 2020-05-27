@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import org.bear.model.constraints.single_column_constraint.UserWithSingleColumnConstraint;
+import org.bear.model.constraints.unique_constraint.UserWithUniqueConstraint;
 
 public class Example {
 	public static void main(String[] args) {
@@ -16,13 +16,11 @@ public class Example {
 			entityManager = entityManagerFactory.createEntityManager();
 			entityManager.getTransaction().begin();
 
-			UserWithSingleColumnConstraint user = new UserWithSingleColumnConstraint("Username0");
+			UserWithUniqueConstraint user = new UserWithUniqueConstraint("Username0", "Email0");
 			entityManager.persist(user);
-			System.out.println(user.getVersion());
 
 			user.setUsername("Username1");
 			entityManager.flush();
-			System.out.println(user.getVersion());
 
 			entityManager.getTransaction().commit();
 		} catch(Exception e) {
